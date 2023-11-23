@@ -17,7 +17,9 @@ class _App extends StatelessWidget {
         body: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children:[
-            CustomTextFormField(),
+            CustomTextFormField(
+              hintText: '이메일을 입력해주세요',
+            ),
           ]
         )
       )
