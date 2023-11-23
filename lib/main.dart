@@ -19,6 +19,7 @@ class _App extends StatelessWidget {
           children:[
             CustomTextFormField(
               hintText: '이메일을 입력해주세요',
+              errorText: '에러가 있습니다.',
             ),
           ]
         )
