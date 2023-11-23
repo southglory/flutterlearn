@@ -61,8 +61,8 @@ flutter:
   assets:
     - asset/img/misc/
     - asset/img/food/
+    - asset/img/logo/
     - asset/svg/icon/
-    - asset/svg/logo/
     - asset/rive/
 
   # To add assets to your application, add an assets section, like this:
