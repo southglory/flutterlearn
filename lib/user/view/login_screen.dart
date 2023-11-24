@@ -3,8 +3,10 @@ import 'dart:io';
 
 import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_secure_storage/flutter_secure_storage.dart';
 import 'package:flutterlearn/common/component/custom_text_form_field.dart';
 import 'package:flutterlearn/common/const/colors.dart';
+import 'package:flutterlearn/common/const/data.dart';
 import 'package:flutterlearn/common/layout/default_layout.dart';
 import 'package:flutterlearn/common/view/root_tab.dart';
 
@@ -21,6 +23,8 @@ class _LoginScreenState extends State<LoginScreen> {
 
   @override
   Widget build(BuildContext context) {
+    final storage = FlutterSecureStorage();
+
     final dio = Dio();
 
     // localhost
@@ -76,12 +80,17 @@ class _LoginScreenState extends State<LoginScreen> {
                           ),
                         );
 
+                        final refreshToken = resp.data['refreshToken'];
+                        final accessToken = resp.data['accessToken'];
+
+                        await storage.write(key: REFRESH_TOKEN_KEY, value: refreshToken);
+                        await storage.write(key: ACCESS_TOKEN_KEY, value: accessToken);
+
                         Navigator.of(context).push(
                           MaterialPageRoute(
                             builder: (_) => RootTab(),
                           ),
                         );
-                        print(resp.data);
                       },
                       style: ElevatedButton.styleFrom(
                         primary: PRIMARY_COLOR,
