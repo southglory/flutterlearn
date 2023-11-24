@@ -3,7 +3,6 @@ import 'dart:io';
 
 import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_secure_storage/flutter_secure_storage.dart';
 import 'package:flutterlearn/common/component/custom_text_form_field.dart';
 import 'package:flutterlearn/common/const/colors.dart';
 import 'package:flutterlearn/common/const/data.dart';
@@ -23,7 +22,6 @@ class _LoginScreenState extends State<LoginScreen> {
 
   @override
   Widget build(BuildContext context) {
-    final storage = FlutterSecureStorage();
 
     final dio = Dio();
 
